@@ -67,29 +67,46 @@ void loop() {
 
 
     if(digitalRead(pirPin) == HIGH){
+      lcd.setCursor(0,0);
+      lcd.print("                ");
+      lcd.setCursor(0,1);
+      lcd.print("                ");
       digitalWrite(ledPinrosso, HIGH);
       digitalWrite(ledPinblu, HIGH);
       digitalWrite(ledPinverde, LOW);
-      lcd.setCursor(0,0);
-      lcd.print("benvenuti a casa");
-      lcd.setCursor(5,5);
-      lcd.print("nostra");
+     // lcd.setCursor(0,0);
+     // lcd.print("benvenuti a casa");
+     // lcd.setCursor(5,5);
+      //lcd.print("nostra");
+      lcd.setCursor(0,1);
+      lcd.print("benvenuti a casa nostra");
       }
-        
+
+
+        for (int positionCounter = 0; positionCounter <50; positionCounter++) {
+    // scroll one position left:
+    lcd.scrollDisplayLeft();
+    // wait a bit:
+    delay(300);//no
         
  
      if(digitalRead(pirPin) == LOW){
+      lcd.setCursor(0,0);
+      lcd.print("                ");
+      lcd.setCursor(0,1);
+      lcd.print("                ");
       digitalWrite(ledPinverde, HIGH);
       digitalWrite(ledPinrosso, LOW);
       digitalWrite(ledPinblu, LOW );         
-      lcd.setCursor(0,2);
-      lcd.print("20 mag 2018");
-      lcd.setCursor(1,1);
-      lcd.print("scritto da ");
-      lcd.setCursor(1,11);
-      lcd.print(millis() / 1000);
+      lcd.setCursor(1,2);
+      lcd.print("20 maggio 2018");
+      //lcd.setCursor(10,2);
+    //  lcd.print("scritto da ");
+      //lcd.setCursor(11,0);
+      //lcd.print(millis() / 1000);
      }
   }
+}
 
   //delay(1000);
      

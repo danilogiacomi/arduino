@@ -83,11 +83,13 @@ void loop() {
       }
 
 
-        for (int positionCounter = 0; positionCounter <50; positionCounter++) {
+        /*for (int positionCounter = 0; positionCounter <50; positionCounter++) {
     // scroll one position left:
     lcd.scrollDisplayLeft();
     // wait a bit:
     delay(300);//no
+    */
+    delay(200);
         
  
      if(digitalRead(pirPin) == LOW){
@@ -106,7 +108,7 @@ void loop() {
       //lcd.print(millis() / 1000);
      }
   }
-}
+
 
   //delay(1000);
      

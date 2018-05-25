@@ -10,16 +10,33 @@ void setup() {
   Serial.begin(9600);
 }
 
+void writeIt(String text, int value){
+  
+  lcd.setCursor(0,0);
+  lcd.print("                ");
+  lcd.setCursor(0,0);
+  
+  lcd.print(text);
+  
+  lcd.setCursor(0,1);
+  lcd.print("                ");
+  lcd.setCursor(6,1);
+  lcd.print(value);
+ 
+}
+
 void loop() {
 
   ilValore = analogRead(w);
 
-  lcd.setCursor(0,0);
-  lcd.print("                ");
-  lcd.setCursor(0,0);
+
      
   if(ilValore <= 300){ 
-     lcd.print("l'acqua e' bassa");
+   //  lcd.print("l'acqua e' bassa");
+
+     writeIt("l'acqua e' bassa", ilValore);
+
+     
    }
   if(ilValore > 300 && ilValore < 600){ 
      lcd.print("l'acqua e' media");
@@ -27,12 +44,7 @@ void loop() {
   if(ilValore >= 600){ 
      lcd.print("l'acqua e' alta!");
    }
- 
-   lcd.setCursor(0,1);
-   lcd.print("                ");
-   lcd.setCursor(0,1);
-   lcd.print(ilValore);
-   
+
    delay(1000);
  
 }

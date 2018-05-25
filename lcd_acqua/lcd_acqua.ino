@@ -12,18 +12,11 @@ void setup() {
 }
 
 void writeIt(String text, int value){
-  
-  lcd.setCursor(0,0);
-  lcd.print("                ");
-  lcd.setCursor(0,0);
+  lcd.clear();
   lcd.print(text);
-  
   lcd.setCursor(0,1);
-  lcd.print("                ");
-  lcd.setCursor(0,1);
-  lcd.print("valore letto:");
+  lcd.print(" val. letto:");
   lcd.print(value);
- 
 }
 
 void loop() {
@@ -35,14 +28,14 @@ void loop() {
   }
   if(ilValore > 300 && ilValore < 600){ 
      ilTesto = "l'acqua e' media";
-   }
+  }
   if(ilValore >= 600){ 
      ilTesto = "l'acqua e' alta!";
-   }
+  }
 
-  writeIt(ilTesto,  ilValore  );
+  writeIt(ilTesto, ilValore);
 
-   delay(2000);
+  delay(2000);
  
 }
 

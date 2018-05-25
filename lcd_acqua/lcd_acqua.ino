@@ -20,7 +20,9 @@ void writeIt(String text, int value){
   
   lcd.setCursor(0,1);
   lcd.print("                ");
-  lcd.setCursor(6,1);
+  lcd.setCursor(0,1);
+  lcd.print("valore letto:");
+  lcd.setCursor(13,1);
   lcd.print(value);
  
 }

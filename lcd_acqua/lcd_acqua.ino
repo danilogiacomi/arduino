@@ -11,7 +11,7 @@ void setup() {
   Serial.begin(9600);
 }
 
-void writeIt(String text, String value){
+void writeIt(String text, int value){
   
   lcd.setCursor(0,0);
   lcd.print("                ");
@@ -20,7 +20,8 @@ void writeIt(String text, String value){
   
   lcd.setCursor(0,1);
   lcd.print("                ");
-  lcd.setCursor(3,1);
+  lcd.setCursor(0,1);
+  lcd.print("valore letto:");
   lcd.print(value);
  
 }
@@ -38,8 +39,8 @@ void loop() {
   if(ilValore >= 600){ 
      ilTesto = "l'acqua e' alta!";
    }
-    String t = "val: " + ilValore;
-  writeIt(ilTesto,  t  );
+
+  writeIt(ilTesto,  ilValore  );
 
    delay(2000);
  

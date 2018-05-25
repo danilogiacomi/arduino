@@ -17,16 +17,24 @@ void loop() {
   if(ilValore <= 300){ 
      lcd.setCursor(0,0);
      lcd.print("                ");
-     lcd.setCursor(3,0);
+     lcd.setCursor(0,0);
      lcd.print("l'acqua e' bassa");
+     lcd.setCursor(0,1);
+     lcd.print("                ");
+     lcd.setCursor(0,1);
+     lcd.print(ilValore);
      delay(500);
    }
   
   if(ilValore > 300 && ilValore < 600){ 
      lcd.setCursor(0,0);
      lcd.print("                ");
-     lcd.setCursor(3,0);
+     lcd.setCursor(0,0);
      lcd.print("l'acqua e' media");
+     lcd.setCursor(0,1);
+     lcd.print("                ");
+     lcd.setCursor(0,1);
+     lcd.print(ilValore);
      delay(500);
    }
   
@@ -35,6 +43,10 @@ void loop() {
      lcd.print("                ");
      lcd.setCursor(3,0);
      lcd.print("l'acqua e' alta!");
+     lcd.setCursor(0,1);
+     lcd.print("                ");
+     lcd.setCursor(0,1);
+     lcd.print(ilValore);
      delay(500);
    }
  

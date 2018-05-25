@@ -26,10 +26,10 @@ void loop() {
   if(ilValore <= 300){ 
      ilTesto = "l'acqua e' bassa";
   }
-  if(ilValore > 300 && ilValore < 600){ 
+  if(ilValore > 300 && ilValore < 500){ 
      ilTesto = "l'acqua e' media";
   }
-  if(ilValore >= 600){ 
+  if(ilValore >= 500){ 
      ilTesto = "l'acqua e' alta!";
   }
 

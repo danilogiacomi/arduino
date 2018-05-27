@@ -19,18 +19,25 @@ void drawPuntino(int x, int y, bool wait = true){
   
 void loop() {
 
- 
-  for(int j = 0; j < 2; j++) {
-     for(int i = 0; i < 16; i++) {
-        bool wait = (i != 15) || (j != 1);
-        drawPuntino(i,j, wait);
+for(int k = 0; k < 3; k++); {
+    for(int j = 0; j < 2; j++) {
+       for(int i = 0; i < 16; i++) {
+          bool wait = (i != 15) || (j != 1);
+          drawPuntino(i,j, wait);
+       }
+    }
+  
+    for(int j = 1; j >= 0; j--) {
+      for(int i = 15; i >= 0; i--) {
+        drawPuntino(i,j);
+       }
      }
   }
-
-  for(int j = 1; j >= 0; j--) {
-    for(int i = 15; i >= 0; i--) {
-      drawPuntino(i,j);
-     }
-   }
+ lcd.clear();
+ lcd.setCursor(4,0);
+ lcd.print("puntino");
+ lcd.setCursor(4,1);
+ lcd.print("di Fab e Dan");
+   
 
 }

@@ -19,7 +19,7 @@ void drawPuntino(int x, int y, bool wait = true){
   
 void loop() {
 
-for(int k = 0; k < 3; k++); {
+for(int k = 0; k <= 2; k++); {
     for(int j = 0; j < 2; j++) {
        for(int i = 0; i < 16; i++) {
           bool wait = (i != 15) || (j != 1);
@@ -36,8 +36,8 @@ for(int k = 0; k < 3; k++); {
  lcd.clear();
  lcd.setCursor(4,0);
  lcd.print("puntino");
- lcd.setCursor(4,1);
+ lcd.setCursor(2,1);
  lcd.print("di Fab e Dan");
-   
 
+ delay(60000);
 }

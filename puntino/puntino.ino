@@ -26,8 +26,8 @@ void drawPuntino(int x, int y, bool wait = true){
   
 void codicePuntino(){
   for(int k = 0; k <= 2; k++); {
-      for(int j = 0; j < 2; j++) {
-         for(int i = 0; i < 16; i++) {
+      for(int j = 0; j <= 1; j++) {
+         for(int i = 0; i <= 15; i++) {
             bool wait = (i != 15) || (j != 1);
             drawPuntino(i,j, wait);
          }

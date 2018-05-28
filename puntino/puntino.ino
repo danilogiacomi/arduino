@@ -2,14 +2,28 @@
 
 const int rs = 3, en = 4, d4 = 5, d5 = 6, d6 = 7, d7 = 8;
 LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
+
+// modificare i valori per cambiare la velocitò
+const int puntinoSpeed = 300;
+const int titoliSpeed = 500;
+
+
+void setup() {
+  lcd.begin(16,2);
+  Serial.begin(9600);
+  codicePuntino();
+}
+
 void drawPuntino(int x, int y, bool wait = true){
-     lcd.clear();
-     lcd.setCursor(x,y);
-     lcd.print(".");
-     if (wait){
-       delay(300);
-     } 
-  }
+   lcd.clear();
+   lcd.setCursor(x,y);
+   lcd.print(".");
+   if (wait){
+     delay(puntinoSpeed);
+   } 
+}
+
+  
 void codicePuntino(){
   for(int k = 0; k <= 2; k++); {
       for(int j = 0; j < 2; j++) {
@@ -33,16 +47,9 @@ void codicePuntino(){
          lcd.print("puntino");
          lcd.setCursor(m,1);
          lcd.print("di Fab e Dan");
-         delay(500);
+         delay(titoliSpeed);
       }
    }
-}
-
-
-void setup() {
-  lcd.begin(16,2);
-  Serial.begin(9600);
-  codicePuntino();
 }
 
   

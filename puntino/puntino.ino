@@ -36,7 +36,7 @@ void setup() {
  for(int l = 0; l <= 4; l++) {
   lcd.clear();
   lcd.setCursor(l,0);
-  lcd.print("puntino.");
+  lcd.print("puntino");
   delay(500);
  }
 

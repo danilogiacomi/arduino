@@ -38,13 +38,11 @@ void setup() {
   delay(500);
  }
 
- delay(6000);
+ delay(2000);
  lcd.setCursor(2,1);
  lcd.print("di Fab e Dan");
 
 }
-
-
   
 void loop() {
 }

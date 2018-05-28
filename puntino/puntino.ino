@@ -11,6 +11,8 @@ void drawPuntino(int x, int y, bool wait = true){
      } 
   }
 
+
+
 void setup() {
   lcd.begin(16,2);
   Serial.begin(9600);
@@ -30,7 +32,7 @@ void setup() {
      }
   }
 
-
+ 
  for(int l = 0; l <= 4; l++) {
   lcd.clear();
   lcd.setCursor(l,0);
@@ -46,5 +48,6 @@ void setup() {
   
 void loop() {
 }
+
 
 

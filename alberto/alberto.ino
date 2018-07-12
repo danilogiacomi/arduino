@@ -1,7 +1,7 @@
 #include <LiquidCrystal.h>
 const int rs = 7, en = 8, d4 = 9, d5 = 10, d6 = 11, d7 = 12;
 LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
-int fg = 300;
+int alberto = 500;
 
 void setup() {
   // set up the LCD's number of columns and rows:
@@ -13,37 +13,24 @@ void setup() {
 void loop() {
   lcd.clear();
   lcd.setCursor(2,0);
-  lcd.print("mitico!");
-  //lcd.setCursor(2,1);
-  //lcd.print("mitico");
-  // scroll 13 positions (string length) to the left
-  // to move it offscreen left:
-  for (int positionCounter = 0; positionCounter < 13; positionCounter++) {
-    // scroll one position left:
+  lcd.print("ciao Alberto! Arduino LCD Scroll.");
+  lcd.setCursor(2,1);
+  lcd.print("Trovi il codice nella scatola");
+  for (int positionCounter = 0; positionCounter < 56; positionCounter++) {
     lcd.scrollDisplayLeft();
-    // wait a bit:
-    delay(fg);
+    delay(alberto);
   }
 
-  // scroll 29 positions (string length + display length) to the right
-  // to move it offscreen right:
-  for (int positionCounter = 0; positionCounter < 29; positionCounter++) {
-    // scroll one position right:
+  for (int positionCounter = 0; positionCounter < 2
+  ; positionCounter++) {
     lcd.scrollDisplayRight();
-    // wait a bit:
-    delay(fg);
+    delay(alberto);
   }
-
-  // scroll 16 positions (display length + string length) to the left
-  // to move it back to center:
-  for (int positionCounter = 0; positionCounter < 16; positionCounter++) {
-    // scroll one position left:
+  
+  for (int positionCounter = 0; positionCounter < 55; positionCounter++) {
     lcd.scrollDisplayLeft();
-    // wait a bit:
-    delay(fg);
+    delay(alberto);
   }
-
-  // delay at the end of the full loop:
 
 
 }

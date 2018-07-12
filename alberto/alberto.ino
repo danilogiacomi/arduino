@@ -54,33 +54,19 @@ void puntinoBarretta(){
 void setup() {
   // set up the LCD's number of columns and rows:
   lcd.begin(16, 2);
+
+lcd.clear();
+    lcd.setCursor(2,0);
+    lcd.print("Hi Albi! Trovi il codice nella scatola");
+    for (int positionCounter = 0; positionCounter < 31; positionCounter++) {
+      lcd.scrollDisplayLeft();
+      delay(alberto);
+    }
 }
 
 void loop() {
-   for (int i = 0;i < 2; i++){
-    lcd.clear();
-    lcd.setCursor(2,0);
-    lcd.print("ciao Alberto! Arduino LCD Scroll.");
-    lcd.setCursor(2,1);
-    lcd.print("Trovi il codice nella scatola");
-    for (int positionCounter = 0; positionCounter < 56; positionCounter++) {
-      lcd.scrollDisplayLeft();
-      delay(alberto);
-    }
-  
-    for (int positionCounter = 0; positionCounter < 2; positionCounter++) {
-      lcd.scrollDisplayRight();
-      delay(alberto);
-    }
-    
-    for (int positionCounter = 0; positionCounter < 55; positionCounter++) {
-      lcd.scrollDisplayLeft();
-      delay(alberto);
-    }
 
-  }
-
-  
+ lcd.clear();  
  puntinoBarretta();
  
  

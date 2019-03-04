@@ -115,6 +115,18 @@ void testdrawstyles(void) {
 
 }
 
+void testdrawroundrect(void) {
+ // display.clearDisplay();
+
+  for(int16_t i=0; i<display.height()/2-2; i+=7) {
+    display.drawRoundRect(i, i, display.width()-2*i, display.height()-2*i,display.height()/5, WHITE);
+    display.display();
+    delay(1);
+  }
+
+  delay(2000);
+}
+
 void setup() {
   Serial.begin(9600);
   if(!display.begin(SSD1306_SWITCHCAPVCC)) {  
@@ -128,8 +140,7 @@ void setup() {
 testdrawbitmap();    
   display.invertDisplay(true);
   delay(1000);
-  display.invertDisplay(false);
-  delay(1000);
+  testdrawroundrect();
   testdrawcircle();
   testdrawstyles();
   testanimate(logo_bmp, LOGO_WIDTH, LOGO_HEIGHT); // Animate bitmaps

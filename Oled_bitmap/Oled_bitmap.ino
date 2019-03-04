@@ -14,28 +14,28 @@
 #define OLED_RESET 13
 Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT,
   OLED_MOSI, OLED_CLK, OLED_DC, OLED_RESET, OLED_CS);
-#define NUMFLAKES      5
+#define NUMFLAKES      3
 #define LOGO_HEIGHT   16
 #define LOGO_WIDTH    16
 static const unsigned char PROGMEM logo_bmp[] =  
-{ B11111111, B11111111,
-  B11111111, B11111111,
-  B11100000, B00000000,
-  B11100000, B00000000,
-  B11100000, B00000000,
-  B11100000, B00000000,
-  B11100000, B00000000,
-  B11111111, B00000000,
-  B11111111, B00000000,
-  B11100000, B00000000,
-  B11100000, B00000000,
-  B11100000, B00000000,
-  B11100000, B00000000,
-  B11100000, B00000000,
-  B11100000, B00000000,
-  B11100000, B00000000 };
+{ B00000000, B00000000,
+  B01100000, B00000110,
+  B01100000, B00000110,
+  B00000000, B00000000,
+  B00100000, B00000010,
+  B00000001, B10000000,
+  B00100001, B10000010,
+  B00000001, B10000000,
+  B00100000, B00000010,
+  B00000000, B00000000,
+  B00000000, B00000000,
+  B00000000, B00000000,
+  B00111111, B11111110,
+  B01100000, B00000110,
+  B11000000, B00000011,
+  B00000000, B00000000 };
 
-#define XPOS   0 // Indexes into the 'icons' array in function below
+#define XPOS   0
 #define YPOS   1
 #define DELTAY 2
 
@@ -54,26 +54,25 @@ void testanimate(const uint8_t *bitmap, uint8_t w, uint8_t h) {
     Serial.println(icons[f][DELTAY], DEC);
   }
 
-  for(;;) { // Loop forever...
-    display.clearDisplay(); // Clear the display buffer
+  for(;;) { 
+    display.clearDisplay(); 
 
       for(f=0; f< NUMFLAKES; f++) {
       display.drawBitmap(icons[f][XPOS], icons[f][YPOS], bitmap, w, h, WHITE);
     }
 
-    display.display(); // Show the display buffer on the screen
-    delay(200);        // Pause for 1/10 second
-
-    // Then update coordinates of each flake...
+    display.display(); 
+    delay(200);
+    
     for(f=0; f< NUMFLAKES; f++) {
       icons[f][YPOS] += icons[f][DELTAY];
-      // If snowflake is off the bottom of the screen...
       if (icons[f][YPOS] >= display.height()) {
-        // Reinitialize to a random position, just off the top
+        
         icons[f][XPOS]   = random(1 - LOGO_WIDTH, display.width());
         icons[f][YPOS]   = -LOGO_HEIGHT;
         icons[f][DELTAY] = random(1, 6);
       }
+      
     }
   }
 }
@@ -109,13 +108,13 @@ void setup() {
   Serial.begin(9600);
   if(!display.begin(SSD1306_SWITCHCAPVCC)) {  
     Serial.println(F("SSD1306 allocation failed"));
-    for(;;); // Don't proceed, loop forever
+    for(;;); 
   }
  display.display();
  delay(2000);
  display.clearDisplay();
 
-testdrawbitmap();    // Draw a small bitmap image
+testdrawbitmap();    
   display.invertDisplay(true);
   delay(1000);
   display.invertDisplay(false);
@@ -123,4 +122,3 @@ testdrawbitmap();    // Draw a small bitmap image
   testdrawcircle();
   testanimate(logo_bmp, LOGO_WIDTH, LOGO_HEIGHT); // Animate bitmaps
 }
-

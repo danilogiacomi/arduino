@@ -104,6 +104,17 @@ void testdrawbitmap(void) {
   delay(1000);
 }
 
+void testdrawstyles(void) {
+  display.clearDisplay();
+
+  display.setTextSize(1);             // Normal 1:1 pixel scale
+  display.setTextColor(WHITE);        // Draw white text
+  display.setCursor(0,0);             // Start at top-left corner
+  display.println(("Ciao Papa'!"));
+  delay(3000);
+
+}
+
 void setup() {
   Serial.begin(9600);
   if(!display.begin(SSD1306_SWITCHCAPVCC)) {  
@@ -120,5 +131,6 @@ testdrawbitmap();
   display.invertDisplay(false);
   delay(1000);
   testdrawcircle();
+  testdrawstyles();
   testanimate(logo_bmp, LOGO_WIDTH, LOGO_HEIGHT); // Animate bitmaps
 }

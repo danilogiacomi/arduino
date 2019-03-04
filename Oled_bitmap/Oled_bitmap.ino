@@ -1,9 +1,9 @@
-//programma di avvio per bitmap e animazione bitmap con cerchi
-
-#include <SPI.h>
-#include <Wire.h>
-#include <Adafruit_GFX.h>
-#include <Adafruit_SSD1306.h>
+  //programma di avvio per bitmap e animazione bitmap con cerchi
+  
+  #include <SPI.h>
+  #include <Wire.h>
+  #include <Adafruit_GFX.h>
+  #include <Adafruit_SSD1306.h>
 
 #define SCREEN_WIDTH 128
 #define SCREEN_HEIGHT 64  //17 = giallo, 47 = blu

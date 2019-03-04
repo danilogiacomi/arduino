@@ -118,7 +118,7 @@ void testdrawstyles(void) {
 void testdrawroundrect(void) {
  // display.clearDisplay();
 
-  for(int16_t i=0; i<display.height()/2-2; i+=7) {
+  for(int16_t i=0; i<display.height()/2-2; i+=1) {
     display.drawRoundRect(i, i, display.width()-2*i, display.height()-2*i,display.height()/5, WHITE);
     display.display();
     delay(1);
@@ -134,14 +134,19 @@ void setup() {
     for(;;); 
   }
  display.display();
- delay(2000);
+ delay(4000);
  display.clearDisplay();
 
 testdrawbitmap();    
-  display.invertDisplay(true);
+display.invertDisplay(true);
   delay(1000);
+  display.invertDisplay(false);
   testdrawroundrect();
   testdrawcircle();
   testdrawstyles();
-  testanimate(logo_bmp, LOGO_WIDTH, LOGO_HEIGHT); // Animate bitmaps
+  testanimate(logo_bmp, LOGO_WIDTH, LOGO_HEIGHT); 
 }
+
+void loop(){
+  
+  }

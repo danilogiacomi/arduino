@@ -1,5 +1,5 @@
 #include <Stepper.h>
-const int stepsPerRevolution = 500;\
+const int stepsPerRevolution = 700;
 Stepper myStepper(stepsPerRevolution, 8, 9, 10, 11);
 
 int stepCount = 0;

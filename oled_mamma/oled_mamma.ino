@@ -1,3 +1,13 @@
+/*
+NOME  ALTRI NOMI
+Gnd = Ground
+Vdd = Vcc, 5V
+SCK = D0,SCL,CLK
+SDA = D1,MOSI
+RES = RST,RESET
+DC  = A0
+CS  = Chip Select
+*/
 #include <SPI.h>
 #include <Wire.h>
 #include <Adafruit_GFX.h>
@@ -12,26 +22,26 @@
 #define OLED_RESET 13
 Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT,
   OLED_MOSI, OLED_CLK, OLED_DC, OLED_RESET, OLED_CS);
-#define NUMFLAKES      5
-#define LOGO_HEIGHT   24
+#define NUMFLAKES      10
+#define LOGO_HEIGHT   16
 #define LOGO_WIDTH    16
 static const unsigned char PROGMEM logo_bmp[] =  
-{ B11111111, B11111111,
-  B11111111, B11111111,
-  B11100000, B00000000,
-  B11100000, B00000000,
-  B11100000, B00000000,
-  B11100000, B00000000,
-  B11100000, B00000000,
-  B11111111, B00000000,
-  B11111111, B00000000,
-  B11100000, B00000000,
-  B11100000, B00000000,
-  B11100000, B00000000,
-  B11100000, B00000000,
-  B11100000, B00000000,
-  B11100000, B00000000,
-  B11100000, B00000000 };
+{ B10000000, B00000001,
+  B11000000, B00000011,
+  B11100000, B00000111,
+  B11100000, B00000111,
+  B01110000, B00001110,
+  B01110000, B00001110,
+  B00111000, B00011100,
+  B00111000, B00011100,
+  B00011100, B00111000,
+  B00011100, B00111000,
+  B00011100, B00111000,
+  B00001110, B01110000,
+  B00001110, B01110000,
+  B00000111, B11100000,
+  B00000011, B11000000,
+  B00000001, B10000000 };
 
 void setup() {
   Serial.begin(9600);
@@ -47,7 +57,7 @@ void setup() {
 testdrawbitmap();    // Draw a small bitmap image
 
    display.invertDisplay(true);
-  delay(1000);
+  delay(10000);
   display.invertDisplay(false);
   delay(1000);
   testanimate(logo_bmp, LOGO_WIDTH, LOGO_HEIGHT); // Animate bitmaps
@@ -108,6 +118,6 @@ void testanimate(const uint8_t *bitmap, uint8_t w, uint8_t h) {
     }
   }
 }
-void loop {
+void loop(){
   
   }

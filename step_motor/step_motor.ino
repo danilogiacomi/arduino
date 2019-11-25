@@ -14,5 +14,4 @@ void loop() {
     myStepper.setSpeed(motorSpeed);
     myStepper.step(stepsPerRevolution / 100);
   }
-  //delay (100);
 }
